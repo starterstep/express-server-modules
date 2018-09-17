@@ -6,12 +6,9 @@ module.exports = function() {
     var mongoose = es.db.mongoose = require('mongoose');
 
     mongoose.connect(config.server.dbUri, {
-        server: {
-            socketOptions: {keepAlive: 300000, connectTimeoutMS: 30000}
-        },
-        replset: {
-            socketOptions: {keepAlive: 300000, connectTimeoutMS: 30000}
-        }
+        useMongoClient: true,
+        keepAlive: 300000,
+        connectTimeoutMS: 30000
     });
 
     return mongoose;
