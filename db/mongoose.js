@@ -8,7 +8,8 @@ module.exports = function() {
     mongoose.connect(config.server.dbUri, {
         useMongoClient: true,
         keepAlive: 300000,
-        connectTimeoutMS: 30000
+        connectTimeoutMS: 30000,
+        socketTimeoutMS: 300000
     });
 
     return mongoose;
